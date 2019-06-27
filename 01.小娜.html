@@ -30,7 +30,7 @@
     if(seconds < 10) {
       seconds = '0' + seconds;
     }
-    var sum = year + '-' + month + '-' + day + '-' + hours + ':' + minutes + ':' + seconds;
+    
     function a(number) {
         if(number < 10) {
             number = '0' + number;
@@ -49,13 +49,17 @@
     var hours = date.getHours();
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
+
+        //这里是判断小于0是加0,；
     month = a(month);     /* month = a(number)  这里的number 是形参，不能再写a(number),因为我们是要调用里面的函数，所以a()里面是要给实参，我们这里的是年月日时分秒，自动获取的，也是实参 */
     day = a(day);
-    hours = a(hours);    /* 这里是调用了 */
+    hours = a(hours);    /* 这里是调用了function a(number) 里面的函数 */
     minutes = a(minutes);
     seconds = a(seconds);
+    var sum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
     // //判断是否小于10
-    // }
+    return sum;
+    }
 
 while(true  /* 循环条件，所以这里不是用true 就是用false */){  
   //弹出一个输入框,提示用户输入
@@ -86,7 +90,7 @@ while(true  /* 循环条件，所以这里不是用true 就是用false */){
     // var seconds = date.getSeconds();
 
 
-    alert(a());
+    alert(formatDate());
     break;
 
     case '3':
@@ -99,7 +103,6 @@ while(true  /* 循环条件，所以这里不是用true 就是用false */){
     alert('1213213');
     break;
   }
-}
 }
 
 
