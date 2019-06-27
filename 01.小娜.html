@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 
 
 
 <script>
+  //封装时间
+  // if (number < 10) {
+  //   /* 在这里判断，如果月分小于10 月，那就要在月份前面加个0 */
+  //   number = '0' + number;
+  // }
+  // if (day < 10) {
+  //   day = '0' + day;
+  // }
+  // if (hours < 10) {
+  //   hours = '0' + hours;
+  // }
+  // if (minutes < 10) {
+  //   minutes = '0' + minutes;
+  // }
+  // if (seconds < 10) {
+  //   seconds = '0' + seconds;
+  // }
 
-    //封装时间
-    if(month < 10) {     /* 在这里判断，如果月分小于10 月，那就要在月份前面加个0 */
-      month = '0' + month; 
+  function a(number) {
+    if (number < 10) {
+      number = '0' + number;
     }
-    if(day < 10) {
-      day = '0' + day;
-    }
-    if(hours < 10) {
-      hours = '0' + hours;
-    }
-    if(minutes < 10) {
-      minutes = '0' + minutes;
-    }
-    if(seconds < 10) {
-      seconds = '0' + seconds;
-    }
-    
-    function a(number) {
-        if(number < 10) {
-            number = '0' + number;
-        }
-        return number;
-    }
+    return number;
+  }
 
-    //第二个封装，获得一个固定的时间
-    
+  //第二个封装，获得一个固定的时间
 
-    function formatDate() {
+
+  function formatDate() {
     var date = new Date();
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
@@ -50,61 +52,60 @@
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
 
-        //这里是判断小于0是加0,；
-    month = a(month);     /* month = a(number)  这里的number 是形参，不能再写a(number),因为我们是要调用里面的函数，所以a()里面是要给实参，我们这里的是年月日时分秒，自动获取的，也是实参 */
+    //这里是判断小于0是加0,；
+    month = a(
+      month); /* month = a(number)  这里的number 是形参，不能再写a(number),因为我们是要调用里面的函数，所以a()里面是要给实参，我们这里的是年月日时分秒，自动获取的，也是实参 */
     day = a(day);
-    hours = a(hours);    /* 这里是调用了function a(number) 里面的函数 */
-    minutes = a(minutes);
+    hours = a(hours); /* 这里是调用了function a(number) 里面的函数 */
+    minutes = a(minutes);   /* 可以这么来解释吧，看到第36行搭配41行，我们这里用函数判断了当number < 10 的时候，number 前面要加一个字符串0，比如，1-9，那就是01-09，当整个if 判断完成之后，我们用一个return返回值，把这个执行结果返回给a(number)这个函数，返回值的作用这个时候体现出来了，当我们要用到返回值的时候，就要在后面加上一个return,所以这里是为了方便调用结果，在这里加了return,这里的用法很清晰，就是number =a(number),   这就好比，当我们给number赋值的时候，假如给它个5，那就是function a(5) {};5 进入里面进行循环，很明显是小于10，那就要在number前面加一个'0', 此时的number = 05;  再然后就是用return返回执行结果给a(number)整个函数，现在我们直接调用就行了，我门忽略了很重要的一点，那就是month,day,hours,这些都是实参，因为这些都是实时更新的时间，就好像是实时更新的数字，既然是数字，就好理解了 number = a(numner);我么直接调用执行结果，改实参就行了*/
     seconds = a(seconds);
     var sum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-    // //判断是否小于10
     return sum;
-    }
-
-while(true  /* 循环条件，所以这里不是用true 就是用false */){  
-  //弹出一个输入框,提示用户输入
-  var msg = prompt('请输入你想要的信息 \n' + '输入《1》或者《总和》可以计算所有数字的和\n' + '输入 《2》或者《时间》可以显示当下时间\n' + '输入《3》或者《笑话》，有彩蛋哦' + '输入q，退订' );
-  if(msg === 'q') {
-
-    break;
   }
-  switch(msg) {
-    case '1':
-    case '总和':
+
+  //第一个封装
+  function b() {
     var number1 = prompt('请输入数字,然后每个数字一英文逗号分开,例如1,2,3');
-    var arr =number1.split(',');
+    var arr = number1.split(',');
     var sum = 0;
-    for(var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
       sum = sum + parseFloat(arr[i]);
     }
-    alert('总数是' + sum);
-    break;
-    case '2':
-    case '时间':
-    // var date = new Date();
-    // var year = date.getFullYear();
-    // var month = date.getMonth() + 1;
-    // var day = date.getDate();
-    // var hours = date.getHours();
-    // var minutes = date.getMinutes();
-    // var seconds = date.getSeconds();
-
-
-    alert(formatDate());
-    break;
-
-    case '3':
-    case '笑话':
-    var arr = ['笑话1','笑话2','笑话3','笑话4','笑话5','笑话6','笑话7','笑话8','笑话9','笑话10',];
-    var r = Math.floor(Math.random() * arr.length);
-    alert(arr[r]);
-    break;
-    default: 
-    alert('1213213');
-    break;
+    return sum; /* 把这个执行结果返回给函数b(),我们可以在switch 循环里面直接调用这个函数的执行结果 */
   }
-}
+  //第三个封装
+  function c() {
+    var arr = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话5', '笑话6', '笑话7', '笑话8', '笑话9', '笑话10', ];
+    var r = Math.floor(Math.random() * arr.length);
+    return arr[r];   /* 把这个执行结果返回给函数c(),我们可以在switch 循环里面直接调用这个函数的执行结果，这里的arr[r]，很明显是，数组的第几个*/
+  }
+  while (true /* 循环条件，所以这里不是用true 就是用false */ ) {
+    //弹出一个输入框,提示用户输入
+    var msg = prompt('请输入你想要的信息 \n' + '输入《1》或者《总和》可以计算所有数字的和\n' + '输入 《2》或者《时间》可以显示当下时间\n' + '输入《3》或者《笑话》，有彩蛋哦' +
+      '输入q，退订');
+    if (msg === 'q') {
 
+      break;
+    }
+    switch (msg) {
+      case '1':
+      case '总和':
+        alert('总数是' + b());
+        break;
+      case '2':
+      case '时间':
+        alert(formatDate());
+        break;
+      case '3':
+      case '笑话':
 
+        alert(c());
+        break;
+      default:
+        alert('1213213');
+        break;
+    }
+  }
 </script>
+
 </html>
