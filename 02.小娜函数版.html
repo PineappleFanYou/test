@@ -32,19 +32,27 @@
             var h = date.getHours();
             var m = date.getMinutes();
             var s = date.getSeconds();
-            M = M < 10 ? '0' + M : 10;
-            d = d < 10 ? '0' + d : 10;
-            h = h < 10 ? '0' + h : 10;
-            m = m < 10 ? '0' + m : 10;
-            s = s < 10 ? '0' + s : 10;
+            M = M < 10 ? '0' + M : M;
+            d = d < 10 ? '0' + d : d;
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
             var time = y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s;
             return time;
         }   
+        // 随机笑话
+
+        this.joke = function() {
+            var arr = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话6', '笑话7', '笑话8', '笑话11', '笑话115', '笑话120', '笑话1111'];
+            var r = Math.floor(Math.random()*arr.length);
+            return arr[r];
+        }
     }
     var XN = new XiaoNa();
     while(true) {
         var msg = prompt('请输入你想要的的东西，输入q退出\n' + '输入1和总和可以计算\n' + '输入2或者时间可以报时\n' + '输入3或者笑话，有惊喜');
         if(msg === 'q') {
+            alert('感谢您的使用');
             break;
         }
         switch(msg) {
@@ -56,6 +64,12 @@
             case '时间':
             alert(XN.getDate());
             break;
+            case '3':
+            case '笑话':
+            alert(XN.joke());
+            break;
+            default:
+            alert('请您按照指示操作');
         }
     }
 </script>
