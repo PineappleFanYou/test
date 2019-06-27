@@ -23,6 +23,23 @@
             }
             return sum;
         }
+        // 输入2或者时间自动报时
+        this.getDate = function() {
+            var date = new Date();
+            var y = date.getFullYear();
+            var M = date.getMonth() + 1;
+            var d = date.getDate();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            M = M < 10 ? '0' + M : 10;
+            d = d < 10 ? '0' + d : 10;
+            h = h < 10 ? '0' + h : 10;
+            m = m < 10 ? '0' + m : 10;
+            s = s < 10 ? '0' + s : 10;
+            var time = y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s;
+            return time;
+        }   
     }
     var XN = new XiaoNa();
     while(true) {
@@ -34,6 +51,11 @@
             case '1':
             case '总和':
             alert(XN.ask());
+            break;
+            case '2':
+            case '时间':
+            alert(XN.getDate());
+            break;
         }
     }
 </script>
