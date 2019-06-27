@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Dog() {
+        this.ask = function () {
+            var number = prompt('输入一个数字');
+            var arr = number.split(',');
+            var sum = 0;
+            for(var i = 0; i < arr.length; i++) {
+                sum += parseFloat(arr[i]);
+            }
+            return sum;
+        }
+    }
+
+    var dog = new Dog();   
+
+
+    while(true) {
+        var msg = prompt('请输入你想要的的东西，输入q退出\n' + '输入1和总和可以计算\n' + '输入2或者时间可以报时\n' + '输入3或者笑话，有惊喜');
+        if(msg === 'q') {
+            alert('thanks');
+            break;
+        }
+        switch(msg) {
+            case '1':
+            case '总和':
+            alert(dog.ask()); /* 对象.方法名(); */
+        }
+    }
+</script>
+</html>
