@@ -38,6 +38,11 @@
             var time = arr[0] + '-' + arr[1] + '-' + arr[2] + ' ' + arr[3] + ':'+ arr[4] + ':' + arr[5];
             return time;
         }
+        this.joke = function() {
+            var arr = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话6', '笑话7', '笑话8', '笑话11', '笑话115', '笑话120', '笑话1111'];
+            var r = Math.floor(Math.random(arr[r])*arr.length );
+            return arr[r];
+        }
     }
 
     var dog = new Dog();   
@@ -57,6 +62,13 @@
             case '2':
             case '时间':
             alert(dog.getDate());
+            break;
+            case '3':
+            case '笑话':
+            alert(dog.joke());
+            break;
+            default:
+            alert('请重新输入');
             break;
         }
     }
